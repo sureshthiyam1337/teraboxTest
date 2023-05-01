@@ -5,6 +5,7 @@
   ],
   "routes": [
     { "src": "/index", "dest": "pages/index.tsx" }
-  ]
+  ],
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
 
