@@ -1,6 +1,7 @@
 import { Telegraf } from 'telegraf';
 import axios from 'axios';
 import { getDownloadUrl } from '../api/getDownloadUrl';
+import { getDownloadUrl } from '../api/getDetail';
 
 const BOT_TOKEN = '5679613407:AAHF2jjLdBGu6QF2LiDQ7j46xO2S3iunI8c';
 const BASE_API_URL = 'https://terabox-beta.vercel.app/';
@@ -85,3 +86,4 @@ const urlDownload = downloadResponse.headers.location;
 return urlDownload;
 };
 
+export { startBot };
