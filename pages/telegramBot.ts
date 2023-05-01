@@ -1,4 +1,5 @@
 import { Telegraf, Context } from "telegraf";
+import * as React from "react";
 import axios from "axios";
 import getDownloadUrl from "./api/getDownloadUrl";
 import getDetailApi from "./api/getDetail";
@@ -159,6 +160,8 @@ const getDownloadURL = async (
   };
 };
 
-export default function TelegramBot() {
+const TelegramBot: React.FC = () => {
   return <div>Hello, Telegram Bot!</div>;
-}
+};
+
+export default TelegramBot;
