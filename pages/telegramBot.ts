@@ -1,7 +1,7 @@
 import { Telegraf } from 'telegraf';
 import axios from 'axios';
-import { getDownloadUrl } from './api/getDownloadUrl';
-import { getDetail } from './api/getDetail';
+import getDownloadUrl from './api/getDownloadUrl';
+import getDetail from './api/getDetail';
 
 const BOT_TOKEN = '5679613407:AAHF2jjLdBGu6QF2LiDQ7j46xO2S3iunI8c';
 const BASE_API_URL = 'https://terabox-beta.vercel.app/';
