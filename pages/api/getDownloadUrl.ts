@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { startBot } from '../telegramBot';
 import axios from 'axios';
 
 const qs = require('qs');
