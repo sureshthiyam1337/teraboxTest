@@ -1,7 +1,7 @@
 import { Telegraf } from 'telegraf';
 import axios from 'axios';
 import { getDownloadUrl } from '../api/getDownloadUrl';
-import { getDownloadUrl } from '../api/getDetail';
+import { getDetail } from '../api/getDetail';
 
 const BOT_TOKEN = '5679613407:AAHF2jjLdBGu6QF2LiDQ7j46xO2S3iunI8c';
 const BASE_API_URL = 'https://terabox-beta.vercel.app/';
@@ -68,7 +68,7 @@ const getDownloadURL = async (fid: string, shareid: string, sign: string, uk: st
   );
 
   if (response.data.errno != 0) {
-    throw new Error(`Failed get url download | Errno: ${response.data.errno}`);
+    throw new Error(`Failed to get url download | Errno: ${response.data.errno}`);
   }
 
   const dlink = response.data.dlink;
