@@ -83,6 +83,7 @@ const getDownloadURL = async (fid: string, shareid: string, sign: string, uk: st
   }
 
 const urlDownload = downloadResponse.headers.location;
+const detail = await getDetail(fid, shareid, sign, uk);
 const fileSize = detail.size;
 return {
     url: getDownloadUrl,
