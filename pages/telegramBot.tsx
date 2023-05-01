@@ -9,6 +9,22 @@ const BASE_API_URL = "https://terabox-beta.vercel.app/";
 
 const bot = new Telegraf(BOT_TOKEN);
 
+bot.use((ctx, next) => {
+  const { chat } = ctx;
+  // initialize session object if it doesn't exist
+  if (!ctx.session) ctx.session = {};
+  // set the session id to chat id
+  ctx.session.id = chat.id;
+  next();
+});
+
+bot.start((ctx) => {
+  const { session } = ctx;
+  // retrieve session id from session object
+  const sessionId = session.id;
+  ctx.reply(`Session ID: ${sessionId}`);
+});
+
 bot.start(async (ctx) => {
   try {
     await ctx.reply(
