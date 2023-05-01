@@ -1,4 +1,4 @@
-import { Telegraf } from "telegraf";
+import { Telegraf, Context } from "telegraf";
 import axios from "axios";
 import getDownloadUrl from "./api/getDownloadUrl";
 import getDetailApi from "./api/getDetail";
@@ -7,6 +7,59 @@ const BOT_TOKEN = "5679613407:AAHF2jjLdBGu6QF2LiDQ7j46xO2S3iunI8c";
 const BASE_API_URL = "https://terabox-beta.vercel.app/";
 
 const bot = new Telegraf(BOT_TOKEN);
+
+bot.start(async (ctx) => {
+  try {
+    await ctx.reply(
+      "Hi there! Please send me the terabox link to download the video."
+    );
+
+    ctx.session.state = "AWAITING_TERABOX_LINK";
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+bot.on("text", async (ctx) => {
+  try {
+    if (ctx.session.state === "AWAITING_TERABOX_LINK") {
+      const url = ctx.message.text.trim();
+
+      if (!url.startsWith("https://www.terabox.com/")) {
+        await ctx.reply(
+          "Invalid terabox link. Please send a valid terabox link."
+        );
+        return;
+      }
+
+      const { uk, shareid, sign, timestamp, fid } = await getDetailApi(url);
+
+      const { url: downloadUrl, size: fileSize } = await getDownloadUrl(
+        fid,
+        shareid,
+        sign,
+        uk,
+        timestamp
+      );
+
+      await ctx.reply(`Here's the download link: ${downloadUrl}`);
+
+      ctx.session.state = undefined;
+    } else {
+      await ctx.reply(
+        "Sorry, I didn't understand that. Please send me the terabox link to download the video."
+      );
+      ctx.session.state = "AWAITING_TERABOX_LINK";
+    }
+  } catch (err) {
+    console.error(err);
+    await ctx.reply(
+      "An error occurred while processing your request. Please try again later."
+    );
+  }
+});
+
+bot.launch();
 
 interface DetailResponse {
   name: string;
@@ -105,3 +158,7 @@ const getDownloadURL = async (
     size: fileSize,
   };
 };
+
+export default function TelegramBot() {
+  return <div>Hello, Telegram Bot!</div>;
+}
