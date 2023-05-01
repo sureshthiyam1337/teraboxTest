@@ -3,7 +3,7 @@ import axios from "axios";
 import getDownloadUrl from "./api/getDownloadUrl";
 import getDetailApi from "./api/getDetail";
 
-const BOT_TOKEN = "your_bot_token";
+const BOT_TOKEN = "5679613407:AAHF2jjLdBGu6QF2LiDQ7j46xO2S3iunI8c";
 const BASE_API_URL = "https://terabox-beta.vercel.app/";
 
 const bot = new Telegraf(BOT_TOKEN);
