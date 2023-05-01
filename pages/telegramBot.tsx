@@ -8,6 +8,9 @@ const BOT_TOKEN = "5679613407:AAHF2jjLdBGu6QF2LiDQ7j46xO2S3iunI8c";
 const BASE_API_URL = "https://terabox-beta.vercel.app/";
 
 const bot = new Telegraf(BOT_TOKEN);
+interface CustomContext extends Context<Update> {
+  session: Session;
+}
 
 bot.use((ctx, next) => {
   const { chat } = ctx;
@@ -60,6 +63,8 @@ bot.on("text", async (ctx) => {
       );
 
       await ctx.reply(`Here's the download link: ${downloadUrl}`);
+      // Access the session property
+      const session = ctx.session;
 
       ctx.session.state = undefined;
     } else {
