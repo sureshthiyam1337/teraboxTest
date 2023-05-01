@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import { startBot } from '../telegramBot';
+import { startBot } from './telegramBot';
 import { Button, Card, Container, Form, Spinner } from 'react-bootstrap';
 import { useRef, useState } from 'react';
 import axios from 'axios';
