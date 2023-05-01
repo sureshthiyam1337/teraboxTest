@@ -3,9 +3,6 @@
   "builds": [
     { "src": "pages/index.tsx", "use": "@vercel/node" }
   ],
-  "routes": [
-    { "src": "/index", "dest": "pages/index.tsx" }
-  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
 
