@@ -1,6 +1,6 @@
 import { Telegraf } from 'telegraf';
 import axios from 'axios';
-import { getDownloadUrl } from './api/getDownloadUrl';
+import getDownloadUrl from './api/getDownloadUrl';
 import { getDetail as getDetailApi } from './api/getDetail';
 
 const BOT_TOKEN = '5679613407:AAHF2jjLdBGu6QF2LiDQ7j46xO2S3iunI8c';
