@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/terabox-dw.iml" filepath="$PROJECT_DIR$/.idea/terabox-dw.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/terabox.iml" filepath="$PROJECT_DIR$/.idea/terabox.iml" />
     </modules>
   </component>
 </project>
