@@ -1,4 +1,4 @@
-import { Telegraf } from 'telegraf/telegraf.js';
+import { Telegraf } from 'telegraf';
 import axios from 'axios';
 import getDownloadUrl from './api/getDownloadUrl';
 import getDetailApi from './api/getDetail';
