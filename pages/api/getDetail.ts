@@ -86,3 +86,4 @@ export default async function handler(
         return
     }
 }
+export default getDetail;
