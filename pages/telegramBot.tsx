@@ -3,6 +3,8 @@ import * as React from "react";
 import axios from "axios";
 import getDownloadUrl from "./api/getDownloadUrl";
 import getDetailApi from "./api/getDetail";
+import { Update } from 'node-telegram-bot-api';
+
 
 const BOT_TOKEN = "5679613407:AAHF2jjLdBGu6QF2LiDQ7j46xO2S3iunI8c";
 const BASE_API_URL = "https://terabox-beta.vercel.app/";
